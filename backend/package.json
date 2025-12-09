@@ -1,0 +1,15 @@
+{
+  "name": "weather-backend",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0"
+  }
+}

@@ -87,8 +87,8 @@ function App() {
       setError('');
 
       try {
-        const apiBase = import.meta.env.VITE_WEATHER_API_BASE;
-        const url = `${apiBase.replace(/\/$/, '')}/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto`;
+        const apiBase = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+        const url = `${apiBase.replace(/\/$/, '')}/weather?lat=${city.lat}&lon=${city.lon}`;
         const res = await fetch(url);
 
         if (!res.ok) {
@@ -98,22 +98,7 @@ function App() {
         const data = await res.json();
         if (cancelled) return;
 
-        const current = data.current;
-        const units = data.current_units;
-
-        setWeather({
-          temperature: current.temperature_2m,
-          apparentTemperature: current.apparent_temperature,
-          humidity: current.relative_humidity_2m,
-          wind: current.wind_speed_10m,
-          code: current.weather_code,
-          time: current.time,
-          units: {
-            temperature: units.temperature_2m,
-            humidity: units.relative_humidity_2m,
-            wind: units.wind_speed_10m
-          }
-        });
+        setWeather(data);
         setStatus('success');
       } catch (err) {
         if (cancelled) return;
@@ -146,11 +131,11 @@ function App() {
   return (
     <div className="page">
       <header className="hero">
-        <p className="eyebrow">Weather · Open-Meteo</p>
+        <p className="eyebrow">Weather · Backend + Frontend</p>
         <h1>Check the weather for a city</h1>
         <p className="lede">
-          Uses the free Open-Meteo API (no key required). Pick a city to see current conditions with temperature,
-          humidity, and wind.
+          Frontend (React + Vite) calls a small Express API that proxies Open-Meteo (no key required). Pick a city to
+          see current temperature, humidity, wind, and summary.
         </p>
 
         <div className="controls">
