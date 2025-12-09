@@ -29,7 +29,7 @@ function App() {
     <div className="page">
       <header className="hero">
         <p className="eyebrow">AWS Amplify · React</p>
-        <h1>Launch a React app in minutes</h1>
+        <h1>Launch a React app in minutes (This is a test)</h1>
         <p className="lede">
           Minimal Vite + React starter ready for AWS Amplify static hosting. Edit the copy, push to your
           repo, and Amplify will build and deploy automatically.
