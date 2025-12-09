@@ -1,6 +1,6 @@
-# React + Vite starter for AWS Amplify hosting
+# React weather app (Vite) for AWS Amplify hosting
 
-A minimal React 18 + Vite app you can wire directly into AWS Amplify for static site hosting. Edit the UI, push to your Git repo, and connect the branch in Amplify to get CI/CD and hosting with no servers to manage.
+A React 18 + Vite app that shows current weather for a selected city using the free Open-Meteo API (no API key required). Push to your Git repo, connect the branch in Amplify, and it will build and deploy automatically.
 
 ## Local development
 
@@ -43,7 +43,8 @@ The production bundle is emitted to `dist/`, which Amplify serves by default.
 ## Customization tips
 
 - Update the UI in `src/App.jsx` and styles in `src/styles.css`.
-- Add environment variables in Amplify under **App settings → Environment variables**; read them in code via `import.meta.env`.
+- The app calls the public Open-Meteo endpoint directly from the browser. No keys are needed.
+- Add environment variables in Amplify under **App settings → Environment variables** if you wire different APIs; read them via `import.meta.env`.
 - Swap npm for pnpm/yarn by changing the build commands above.
 
 ## Troubleshooting

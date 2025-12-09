@@ -68,13 +68,6 @@ h3 {
   max-width: 720px;
 }
 
-.cta-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
 .button {
   padding: 12px 16px;
   border-radius: 12px;
@@ -100,19 +93,25 @@ h3 {
   background: transparent;
 }
 
-.meta {
+.controls {
+  margin-top: 16px;
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
-.pill {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--panel);
+.label {
+  font-weight: 600;
+}
+
+.select {
+  padding: 10px 12px;
+  border-radius: 10px;
   border: 1px solid var(--panel-border);
-  color: var(--muted);
-  font-size: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  min-width: 180px;
 }
 
 .content {
@@ -130,10 +129,6 @@ h3 {
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
 }
 
-.panel-header {
-  margin-bottom: 16px;
-}
-
 .muted {
   color: var(--muted);
   margin: 0;
@@ -143,47 +138,50 @@ h3 {
   font-size: 14px;
 }
 
-.grid {
+.weather-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
+  gap: 20px;
 }
 
-.card {
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid var(--panel-border);
-  background: rgba(255, 255, 255, 0.03);
+.current {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
-.command-block {
-  display: grid;
-  gap: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
+.icon {
+  font-size: 48px;
   padding: 12px;
-  width: fit-content;
-}
-
-.command-block code {
-  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  color: var(--text);
-}
-
-.checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-}
-
-.checklist li {
-  padding: 12px 12px 12px 14px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--panel-border);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stat-value {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.error {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 99, 132, 0.4);
+  background: rgba(255, 99, 132, 0.08);
+  color: #ffd5df;
 }
 
 @media (max-width: 640px) {
