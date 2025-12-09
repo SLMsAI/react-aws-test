@@ -87,7 +87,8 @@ function App() {
       setError('');
 
       try {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto`;
+        const apiBase = import.meta.env.VITE_WEATHER_API_BASE || 'https://api.open-meteo.com';
+        const url = `${apiBase.replace(/\\/$/, '')}/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto`;
         const res = await fetch(url);
 
         if (!res.ok) {

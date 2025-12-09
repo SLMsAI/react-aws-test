@@ -43,8 +43,8 @@ The production bundle is emitted to `dist/`, which Amplify serves by default.
 ## Customization tips
 
 - Update the UI in `src/App.jsx` and styles in `src/styles.css`.
-- The app calls the public Open-Meteo endpoint directly from the browser. No keys are needed.
-- Add environment variables in Amplify under **App settings → Environment variables** if you wire different APIs; read them via `import.meta.env`.
+- The app calls the public Open-Meteo endpoint. You can override the base URL via `VITE_WEATHER_API_BASE` (see `.env.example`).
+- Add environment variables in Amplify under **App settings → Environment variables**; Vite requires the `VITE_` prefix (e.g., `VITE_WEATHER_API_BASE=https://api.open-meteo.com`).
 - Swap npm for pnpm/yarn by changing the build commands above.
 
 ## Troubleshooting
