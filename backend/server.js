@@ -9,6 +9,10 @@ const WEATHER_API_BASE = process.env.WEATHER_API_BASE || 'https://api.open-meteo
 const app = express();
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Hello from Express on App Runner");
+});
+
 app.get('/weather', async (req, res) => {
   const { lat, lon } = req.query;
 
